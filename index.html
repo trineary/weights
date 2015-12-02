@@ -122,12 +122,9 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 How the +/-1 were calculated for the reward.</p>
 
 <p>Neural Network Architecture
-[ TODO: ]</p>
-
-<h1>
-<a id="inputs--outputs--middle-layers--nodes-in-middle-layers" class="anchor" href="#inputs--outputs--middle-layers--nodes-in-middle-layers" aria-hidden="true"><span class="octicon octicon-link"></span></a>inputs, # outputs, # middle layers, # nodes in middle layers.</h1>
-
-<p>Discussion of learning rate and its effect on minimizing the mean squared error...</p>
+[ TODO: ]
+Num inputs, num outputs, num middle layers, num nodes in middle layers.
+Discussion of learning rate and its effect on minimizing the mean squared error...</p>
 
 <p>At this point a decision was made with regard to the training.  In general, a NN can be trained to accomplish a specific task.  The task that this NN was to perform was to identify the ideal market entry conditions.  In order to accomplish this task, it was decided that when a training input was identified that produced a significant return, all of the candles following the entry that were part of the trade were to be skipped.  Once the trade closed, each subsequent candle would be considered and entered as part of the training.  This way the high quality entry points would be emphasized over and over to the training set.  Additionally, the poor entry points would be emphasized and trained into the NN.  </p>
 
