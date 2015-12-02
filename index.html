@@ -103,7 +103,7 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 
 <p>Not all candlestick patterns are equally important all of the time.  One example if a candlestick pattern is a Bearish Engulfing Pattern.  This pattern consists of two candlesticks followed by a large bearish candlestick that engulfs the bodies of the previous two.  This can be a signal that the market is turning and may be a good entry point for a sell trade.  The problem however, is that if a particular bull trend is still early in its development, the pattern may show up, but may be just part of a temporary pull back.  For this reason adding some additional information to the input vector such as overbought/oversold values can add important context for the Neural Network to base its decision on.  For this reason additional binary inputs were added to signify overbought and oversold conditions.  </p>
 
-<p>In addition to adding to stochastic inputs, binary values representing the ADX (Average Directional Index) were added as well.  The ADX is an indicator that is supposed to show whether a security is trending or not.  The ADX ranges between 0-100.  When it is less than 20 the security is generally ranging.  When it is greater than 20 the security is believed to be trending.  It doesn't specify whether it is bullish or bearish though.  The input to the NN is binary again where one indicates a value greater than 20 and 0 is less than 20.</p>
+<p>In addition to adding to stochastic inputs, binary values representing the ADX (Average Directional Index) were added as well.  The ADX is an indicator that is supposed to show whether a security is trending or not.  The ADX ranges between 0-100.  When it is less than 20 the security is generally ranging.  When it is greater than 20 the security is believed to be trending.  It doesn't specify whether the trend is bullish or bearish.  The input to the NN is binary, where 1 indicates a value greater than 20 and 0 indicates values less than 20.</p>
 
 <p><img src="images/ResultssStochastic.png" alt=""></p>
 
@@ -117,14 +117,6 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 <p>To improve the performance of the trading system several changes needed to be made in terms of trade duration, 'reward' calculation, and trade management/position closing.  One approach to managing trades is to use a trailing stop.  An approach that some traders use is to watch the 9 exponential moving average (EMA).  When a security crosses the EMA and closes on the other side, that is a signal that the trend could be at an end and that it's a good time to take profit.  </p>
 
 <p>For this implementation the 9 EMA was used as the trailing stop.  When generating the training vector, the input vector was created and then an algorithm looked into the future to determine what reward would be achieved by taking a long trade and then by taking a short trade.  The trade that was the most profitable was determined and used as the 'reward' for the training set.  Initially only one output was generated from the NN.  The output ranged between -1 and +1.  The closer to +1, the more profitable the bullish/long trade.  The closer to -1, the more profitable the bearish/short trade.  The closer to zero the more neutral the trade and the better to not enter a position in the market.  After some testing it was decided to switch the NN to generate three outputs.  One output each for long, short, and neutral predictions.  The closer to +1 the better the trade and the closer to -1 the poorer the trade.</p>
-
-<p>[ TODO: ]
-How the +/-1 were calculated for the reward.</p>
-
-<p>Neural Network Architecture
-[ TODO: ]
-Num inputs, num outputs, num middle layers, num nodes in middle layers.
-Discussion of learning rate and its effect on minimizing the mean squared error...</p>
 
 <p>At this point a decision was made with regard to the training.  In general, a NN can be trained to accomplish a specific task.  The task that this NN was to perform was to identify the ideal market entry conditions.  In order to accomplish this task, it was decided that when a training input was identified that produced a significant return, all of the candles following the entry that were part of the trade were to be skipped.  Once the trade closed, each subsequent candle would be considered and entered as part of the training.  This way the high quality entry points would be emphasized over and over to the training set.  Additionally, the poor entry points would be emphasized and trained into the NN.  </p>
 
