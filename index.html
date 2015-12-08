@@ -39,13 +39,10 @@
         </div>
 
         <h1>
-<a id="stock-market-trading-with-a-neural-network" class="anchor" href="#stock-market-trading-with-a-neural-network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stock Market Trading with a Neural Network</h1>
+<a id="stock-market-trading-with-a-neural-network" class="anchor" href="#stock-market-trading-with-a-neural-network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Candlestick Based Trade Entries For Algorithmic Trading with Neural Networks</h1>
 
 <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
-
-<p><img src="images/GeneralMarketShot.png" alt="S&amp;P 500 Index"></p>
-
 
 <p>The stock market provides the opportunity for individual investors to buy into corporations that they believe have value and will increase in value over time.  Additionally it provides a means for corporations to generate revenue for their needs.  There are many different ways of gauging a corporations value, so the market provides opportunities for people to buy and sell shares of corporations stock according to their beliefs about the value of that company.  Some people buy and sell stocks based on economic fundamentals, some base decisions on technical analysis, and others base decisions on other factors.  </p>
 
@@ -56,13 +53,15 @@
 <h3>
 <a id="background" class="anchor" href="#background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background</h3>
 
-<p>Within technical analysis there are many different ways of looking at stock data to make trading decisions.  One of the initial decisions to make is what time frame to look at and what information to display for that specific time frame.  Some common time frames include one minute charts, five minute, fifteen minute, hourly, 4 hour, and daily.  During the chosen time frame the stock price generally fluctuates.  One common way to capture and display this information is with a candlestick.  A candlestick, as the name implies, is a figure that resembles a candlestick.  The figure consists of a thicker body and a wick at the top and bottom.  The thick body contains the open and close price and the wicks show the high and low for that time period.</p>
+<p>Within technical analysis there are many different ways of looking at stock data to make trading decisions.  One of the initial decisions to make is what time frame to look at and what information to display for that specific time frame.  Some common time frames include one minute charts, five minute, fifteen minute, hourly, 4 hour, and daily.  During the chosen time frame the stock price generally fluctuates.  One common way to capture and display this information is with a candlestick.  A candlestick, as the name implies, is a figure that resembles a candlestick.  The figure consists of a thicker body and a wick at the top and bottom.  The thick body contains the open and close price and the wicks show the high and low for that time period.  The following figure shows a bullish candlestick and a bearish candlestick.  The main difference between the two is where the open and close are in relation to eachother.  A bullish candlestick opens lower and closes higher, thus showing upward movement in the market.  A bearish candlestick opens higher and closes lower, thus showing downward movement in the market.</p>
+
+<p><img src="images/Candlesticks.png" alt=""></p>
 
 <p>The Japanese rice traders were the first traders to use candlesticks.  They discovered that the candles could capture what investor sentiment was for the given time period.  Certain candlestick patterns gave a good probability that the market would move in a specific direction.  These patterns were then used as signals to enter the market, add to positions, or to exit the market.  Most candlestick patterns are composed of no more than three candlesticks.  Therefore in this project three candlesticks will be used as inputs to the Neural Network.</p>
 
 <p>The stock market commonly uses a number of terms to describe the direction the market is going.  If the market is heading up, it is referred to as a bull market.  If it's heading down it's a bear market.  If it's moving to the side within a range it's a ranging market or sideways market.  When a position is taken to take advantage of a bull market (buy low sell high) a 'long' position is taken.  When a position is taken to take advantage of a bear market (sell high buy low) a 'short' position is taken.</p>
 
-<p>The objective of this project is to feed candlestick information into a neural network and make trades based on the output.</p>
+<p>The objective of this project is to feed candlestick information into a backpropagation neural network and make trades based on the output.</p>
 
 <h3>
 <a id="problem-description" class="anchor" href="#problem-description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem Description</h3>
@@ -72,12 +71,16 @@
 <h3>
 <a id="what-this-project-is" class="anchor" href="#what-this-project-is" aria-hidden="true"><span class="octicon octicon-link"></span></a>What This Project Is</h3>
 
-<p>This project employs the use of AI algorithms, Neural Networks specifically, for identifying patterns in the stock market and entering and exiting positions based on those trends.  </p>
+<p>This project employs the use of AI algorithms, neural networks specifically, for identifying patterns in the stock market and entering and exiting positions based on those trends.  </p>
 
 <p>One method of interpreting sentiment and predicting future market action in the stock market is using candlestick patterns.  Candlesticks were first used by Japanese rice traders.  The theory behind candlesticks is that they capture, in real time, the current sentiment and beliefs of all market participants.  </p>
 
 <p>This paper looks at marrying candlestick patterns with Neural Networks to identify patterns resulting in profitable trades.
 Coding for this project is done in Python in the Quantopian environment.  Quantopian provides a platform for developing trading algorithms, back testing those algorithms, and comparing algorithmic results against market performance.  </p>
+
+<p><img src="images/GeneralMarketShot.png" alt="S&amp;P 500 Index"></p>
+
+<p>The screen shot above is taken from a backtest in the Quantopian environment.  The figure shows the S&P 500 Index (SPY) in the red line.  The blue line reflects the gains and losses of the algorithm being employed.  Screen shots like these will be used to compare market returns vs. the returns generated by the trading algorithm.</p>
 
 <h3>
 <a id="why-is-this-project-important" class="anchor" href="#why-is-this-project-important" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Is This Project Important?</h3>
@@ -87,54 +90,75 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 <p>This project is important for this very reason.  To allow a portfolio to take advantage of all market conditions and to protect, at least a portion of, one's retirement.  If another market crash was to take place, I would prefer to have means in place to protect what has been earned through hard work.  In my mind, this is an extremely motivating reason to pursue and find a successful trading algorithm.  </p>
 
 <h3>
-<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Network Input Selection</h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Network Input Encoding</h3>
 
-<p>One of the design issues with a Neural Network is selecting inputs that the Neural Net will be able to easily work with to find patterns.  When looking at the stock prices associated with each candlestick, it's apparent that over time prices can change significantly.  Additionally, if the NN is applied to other stocks, those prices can vary significantly from the initial training set.  In order to help reduce the complexity of training, the candlestick inputs to the NN were encoded as a binary value.  The encoding consists of comparing each value composing one candlestick with each value of another candlestick.  For example the 'Open' of candlestick one is compared with the 'Open', 'High', 'Low', and 'Close' of the next candlestick.  Each comparison is encoded into a binary value where 1 signifies that the 'Open' of candlestick one is higher in value than the prices in candlestick 2.  A 0 signifies that the value in candlestick one is lower than the value in candlestick 2.  </p>
+One of the design issues with a Neural Network is selecting which inputs will provide the needed information and will help reduce error in training. When looking at the stock prices associated with each candlestick, it's apparent that over time prices can change significantly. Additionally, if the NN is applied to other stocks, the new stock's prices can vary significantly from the initial training set. In order to help reduce the complexity of training and extend the usability of the network, the candlestick inputs are encoded as a binary value.  Encoding allows the patterns to be identified, while omitting the complexity of the specific values of the open, high, low and close prices. The encoding consists of comparing each value from one candlestick with each value of another candlestick. 
 
-<p>For generating these binary values candlestick 1 is compared to candlestick 2, candlestick 2 is compared to candlestick 3, and then candlestick 1 is compared to candlestick 3.  When each value in the three different candlesticks is compared with the others, the input vector expands to 48 binary values.  This captures all possible combinations of relative prices between three candlesticks.</p>
+Each comparison is encoded into a binary value where "1" signifies that a price in one candlestick is greater than a price in the other candlestick. A "0" signifies that the value in a candlestick one is lower than the value in the other candlestick.  For example, in the following figure, the 'Open' of candlestick one is compared with the 'Open', 'High', 'Low', and 'Close' of candlestick two.  Candlestick one 'Open' is lower than 'Open' and 'High' of Candlestick two, but is higher than 'Low' and 'Close'.  This information would be encoded as [0, 0, 1, 1].  A comparison is made between each value in one candlestick to each value in another.  As this approach uses three candlesticks, a total of 48 binary inputs are generated for the candlestick portion of the vector feeding the neural network.
 
-<p>For the initial design with 48 inputs to the NN the following results were obtained.  This implementation had the potential of opening a trade at the beginning of the day.  If a trade was opened, then it was closed right before the market closed.</p>
+<p><img src="images/CandlestickPositions.png" alt="Candlestick relative positions"></p>
 
-<p><img src="images/FirstNNResults.png" alt=""></p>
-
-<p>As can be seen above, the results are less than awe inspiring.  A closer inspection to the actual trades reveals a near random selection of trades.  More work needed to be done to create a successful trading algorithm.</p>
 
 <h3>
-<a id="more-to-be-done" class="anchor" href="#more-to-be-done" aria-hidden="true"><span class="octicon octicon-link"></span></a>More To Be Done</h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Candlestick Attributes</h3>
 
-<p>Not all candlestick patterns are equally important all of the time.  One example if a candlestick pattern is a Bearish Engulfing Pattern.  This pattern consists of two candlesticks followed by a large bearish candlestick that engulfs the bodies of the previous two.  This can be a signal that the market is turning and may be a good entry point for a sell trade.  The problem however, is that if a particular bull trend is still early in its development, the pattern may show up, but may be just part of a temporary pull back.  For this reason adding some additional information to the input vector such as overbought/oversold values can add important context for the Neural Network to base its decision on.  For this reason additional binary inputs were added to signify overbought and oversold conditions.  </p>
+Another important consideration that needed to be taken into account is the length of the candlesticks.  A series of candlesticks could potentially have a significant pattern, but if the real body lengths of the candlesticks are very small then the pattern has little significance.  
 
-<p>In addition to adding to stochastic inputs, binary values representing the ADX (Average Directional Index) were added as well.  The ADX is an indicator that is supposed to show whether a security is trending or not.  The ADX ranges between 0-100.  When it is less than 20 the security is generally ranging.  When it is greater than 20 the security is believed to be trending.  It doesn't specify whether the trend is bullish or bearish.  The input to the NN is binary, where 1 indicates a value greater than 20 and 0 indicates values less than 20.</p>
+<p><img src="images/GapUpOversold.png" alt="Gap up pattern in an oversold region"></p>
 
-<p><img src="images/ResultssStochastic.png" alt=""></p>
+<p><img src="images/GapUpOverbought.png" alt="Gap up pattern in an overbought region"></p>
 
-<p>From the image above we can see that the results of adding in the ADX and Stochastic information didn't help out much with the day trading approach.  Something more needed to be done.</p>
+The two figures above show charts with similar gap up patterns, but with different sized candles.  The top chart signals a strong upward move, while the bottom chart meanders in a narrow sideways range.  Another type of candle that is important to point out is the doji.  A doji is a candle with little or no body to the candle with longer wicks to either side of the body.  A doji will often indicate market indecision.  This is visually apparent as the bulls pushed the market one direction, the bears pushed it back in another and at the end neither side made any headway.  These will often show up when both sides are pushing equally aggressively, or when there's not much in the way of market activity.  This may happen in days leading up to a big economic release where market participants are sitting on their hands until the report is issued.    
 
+To track candle length I created two new classes of binary inputs.  One class reports whether or not each of the three candlesticks is a doji (total of three binary values).  The value is set to '1' if a doji and a '0' otherwise.  The second class creates three groups representing historical lengths seen for the candlesticks.  For example, the past 200 candles are looked at and the real body lengths are measured.  Those lengths are then divided into three groups (smaller third, middle third, larger third).  Each candlestick is then evaluated to see which of the three groups it falls into and these results become part of the binary input vector to the neural network.  
+ 
 <h3>
-<a id="rewards-and-nn-training" class="anchor" href="#rewards-and-nn-training" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rewards and NN Training</h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Relative Importance of Candlestick Patterns</h3>
 
-<p>The initial design for this NN was to do day trades only.  This consisted of running the NN and, based on the results, deciding whether to initiate a buy trade, sell trade, or do nothing.  The trade was then closed at the end of the trading day.  Overall this approach (as seen above) produced lousy results.  The problem is that candlesticks indicate good probability direction for the market in the upcoming days, but the direction isn't necessarily achieved that same day.  Consequently, while some of the trade signals were good in the long run, they weren't profitable for such a short time frame.  </p>
+As mentioned before, not all candlestick patterns have the same significance all the time.  One way to help determine if a candlestick reversal pattern is important or not is by looking at how overbought or oversold the market is at the time of the pattern.  In the previous figures we see to gap ups, one in an oversold condition and the other in an overbought condition.  We can see that the figure in the oversold continues on with a nice move upward, while the one in the overbought condition just continues in a sideways range.  
 
-<p>To improve the performance of the trading system several changes needed to be made in terms of trade duration, 'reward' calculation, and trade management/position closing.  One approach to managing trades is to use a trailing stop.  An approach that some traders use is to watch the 9 exponential moving average (EMA).  When a security crosses the EMA and closes on the other side, that is a signal that the trend could be at an end and that it's a good time to take profit.  </p>
+ To help identify these conditions three binary values were added to the input vector.  The binary values indicate whether the stochastic value is less than 21, greater than 79, or in between.  These are measured only for the most recent candlestick.  
+ 
+ Another way to add insight to current market conditions for the neural network is to look at the value of the Average Directional Index (ADX).  The ADX provides a single value that indicates whether the current market is trending or ranging.  If the value is greater than 20 it is considered to be in a trending state, otherwise it is ranging.  A binary value was added to the input vector indicating if the current candlestick is trending, '1', or ranging, '0'.
 
-<p>For this implementation the 9 EMA was used as the trailing stop.  When generating the training vector, the input vector was created and then an algorithm looked into the future to determine what reward would be achieved by taking a long trade and then by taking a short trade.  The trade that was the most profitable was determined and used as the 'reward' for the training set.  Initially only one output was generated from the NN.  The output ranged between -1 and +1.  The closer to +1, the more profitable the bullish/long trade.  The closer to -1, the more profitable the bearish/short trade.  The closer to zero the more neutral the trade and the better to not enter a position in the market.  After some testing it was decided to switch the NN to generate three outputs.  One output each for long, short, and neutral predictions.  The closer to +1 the better the trade and the closer to -1 the poorer the trade.</p>
+ <h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calculating Training Reward</h3>
 
-<p>At this point a decision was made with regard to the training.  In general, a NN can be trained to accomplish a specific task.  The task that this NN was to perform was to identify the ideal market entry conditions.  In order to accomplish this task, it was decided that when a training input was identified that produced a significant return, all of the candles following the entry that were part of the trade were to be skipped.  Once the trade closed, each subsequent candle would be considered and entered as part of the training.  This way the high quality entry points would be emphasized over and over to the training set.  Additionally, the poor entry points would be emphasized and trained into the NN.  </p>
+The final portion of the training input vector is the reward.  As this neural net is being trained to identify optimal trade entries I wanted to focus the positive rewards on the best entries.  To achieve this when a trio of candlesticks is selected, the algorithm looks forward into the future to ascertain whether the subsequent candles move up or down before triggering a 'close' condition.  An exponential moving average (EMA) was used as a trailing stop.  When a candlestick closed over the EMA a close condition is issued and the trade is considered over.  The bigger the move (positive or negative) the bigger the reward assigned to the training vector.  The rewards are bullish, bearish, and neutral.  The reward can take on values between +/- 1.  Many moves within the market aren't very big, so for every .1 percent the security moves .1 is added to the reward.  If the move is greater than 1, then the reward tops out at a 1.  If there is not significant reward in either the bearish or bullish directions, then the neutral is given a large positive value.
 
-<p>The training/testing period chosen for this enhancement included the years surrounding the market crash at the end of 2008.  As may be seen from the figure below, the trading algorithm did very well in dealing with these market conditions!  In the following plot 100% of available capital was used for each trade.  While this was fun for presentation purposes, in the real world a much more conservative use of capital would likely be used.</p>
+ <h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Network Design</h3>
 
-<p><img src="images/BearMarketWinningTrend.png" alt=""></p>
+The following figure shows the final neural network design.  It consists of 64 binary inputs, 1 hidden layer, 13 hidden layer nodes, and 3 outputs.  There isn't a hard rule about the number of nodes and hidden layers in a neural network.  It is suggested to have less than two times the size of the input layer.  It was decided that this design would use 1/4 of the number of inputs for the hidden layer.  It would also generate three outputs.
 
-<h3>
-<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
+<p><img src="images/NetworkDiagram.png" alt="Neural network design"></p>
 
-<p>While the time period from 2007-2009 provided some awe inspiring results, more temperate markets have a different outcome.  Following the crash at the end of 2008 and beginning of 2009, the stock market started a long recovery.  From the following plot one can see that the NN results aren't nearly as spectacular as during the crash.  </p>
+ <h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
 
-<p><img src="images/BullMarketLosingTrend.png" alt=""></p>
 
-<p>The NN seems to struggle with the slow steady upward trend.  This is likely due to the slower nature of bull markets.  Bull markets tend to move up slowly with relatively frequent pauses and minor pull backs.  These pauses and pull backs tend to cause the algorithm to exit trades before the trend is really over.  Additional work will have to be done in order to optimize the algorithm for non-catastrophic markets.</p>
+For the initial training and testing of this neural net the time frame from 2007 to 2009 was selected.  I wanted to see how well the algorithm did during a variety of market conditions and this time period seemed to capture it all.  There's some great bearish territory, some nice ranging, and some bullish movement.  The following figure shows the results during this two year stretch.  As may be seen from the graph, the algorithm performs very well during the bear market.  
+ 
+<p><img src="images/BearMarketWinningTrend.png" alt="Neural network design"></p>
 
-<p>If one anticipates a cataclysm in the markets any time soon however, this algorithm may be handy to have in one's repertoire.</p>
+While the time period from 2007-2009 provided some awe inspiring results, more temperate markets have a different outcome. Following the crash at the end of 2008 and beginning of 2009, the stock market started a long recovery.  The following figure shows the S&P 500 from 2009 to 2011.  This time frame shows the first few years of a long bull market.  It's not hard to see the upward movement of the SPY and the downward movement of the trading algorithm.
+
+<p><img src="images/BullMarketLosingTrend.png" alt="Neural network design"></p>
+
+
+ <h3>
+<a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussion</h3>
+
+From the results section we can see that the algorithm performed the best during the market down turn in 2008 and 2009.  During the subsequent years of recovery the gains achieved during the downturn are slowly eaten away.  Overall the solution in it's current format is not a viable algorithm for identifying trade entries in all market conditions.  It does very well during bearish markets, but sub-optimally the rest of the time.  
+
+In digging in to look at the trades being made that chipped away at the account several observations were made.
+1. During the bullish trend there were many attempts to short the market.  This may have something to do with the fact that during a prolonged upward trend, the stochastic tends to stay in overbought territory.  Subsequently, any pattern that looks like a trend reversal pattern will likely trigger a strong sell signal.
+2. Also during long bullish trends in and index like the SPY, the upward movement tends to be slow.  When a buy entry is signaled it can be quickly closed down due to the method being used to trigger a close on the position.  
+
+In future work both of these issues will be looked at in further depth.  
+ 
+
+
       </section>
 
     </div>
