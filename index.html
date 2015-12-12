@@ -157,8 +157,8 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 <p>From the results section we can see that the algorithm performed the best during the market down turn in 2008 and 2009.  During the subsequent years of recovery the gains achieved during the downturn are slowly eaten away.  Overall the solution in it's current format is not a viable algorithm for identifying trade entries in all market conditions.  It does very well during bearish markets, but sub-optimally the rest of the time. </p> 
 
 <p>In digging in to look at the trades being made that chipped away at the account several observations were made.
-1. During the bullish trend there were many attempts to short the market.  This may have something to do with the fact that during a prolonged upward trend, the stochastic tends to stay in overbought territory.  Subsequently, any pattern that looks like a trend reversal pattern will likely trigger a strong sell signal.
-2. Also during long bullish trends in and index like the SPY, the upward movement tends to be slow.  When a buy entry is signaled it can be quickly closed down due to the method being used to trigger a close on the position.</p>  
+During the bullish trend there were many attempts to short the market.  This may have something to do with the fact that during a prolonged upward trend, the stochastic tends to stay in overbought territory.  Subsequently, any pattern that looks like a trend reversal pattern will likely trigger a strong sell signal.
+Also during long bullish trends in and index like the SPY, the upward movement tends to be slow.  When a buy entry is signaled it can be quickly closed down due to the method being used to trigger a close on the position.</p>  
 
 <p>In future work both of these issues will be looked at in further depth. </p> 
  
