@@ -41,41 +41,44 @@
         <h1>
 <a id="stock-market-trading-with-a-neural-network" class="anchor" href="#stock-market-trading-with-a-neural-network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Candlestick Based Trade Entries For Algorithmic Trading with Neural Networks</h1>
 
+<p><img src="images/Candlesticks.png" alt="Neural network design"></p>
+
+
 <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>The stock market provides the opportunity for individual investors to buy into corporations that they believe have value and will increase in value over time.  Additionally it provides a means for corporations to generate revenue for their needs.  There are many different ways of gauging a corporations value, so the market provides opportunities for people to buy and sell shares of corporations stock according to their beliefs about the value of that company.  Some people buy and sell stocks based on economic fundamentals, some base decisions on technical analysis, and others base decisions on other factors.  </p>
+<p>The stock market provides the opportunity for individual investors to buy into corporations that they believe have value and will increase in value over time.  Additionally it provides a means for corporations to generate revenue for their needs.  There are many different ways to gauge a corporation's value, so the market provides opportunities for people to buy and sell shares of a corporation's stock according to their beliefs about its value.  Some people buy and sell stocks based on economic fundamentals, some base decisions on technical analysis, while others may use sophisticated algorithms for making trades.  </p>
 
-<p>The use of computer algorithms to make trading decisions has increased over time. Large banks and other institutions employ algorithms for trading and issuing trade signals from these programs.  They take advantage of market movement for generating profit.</p>
+<p>The use of computer algorithms to make trading decisions has increased over time. Large banks and other institutions employ algorithms for trading and issuing trade signals from these programs.  They take advantage of market movement for generating profits.</p>
 
 <p>Individual investors are also able to participate in the buying and selling of stocks.  There are a multitude of providers that allow individuals to buy and sell stocks and employ their investment strategies.  Some of these providers enable the use of programmatic buying and selling of stocks.  This opens up the playing field of algorithmic trading to anyone interested.  </p>
 
 <h3>
 <a id="background" class="anchor" href="#background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background</h3>
 
-<p>Within technical analysis there are many different ways of looking at stock data to make trading decisions.  One of the initial decisions to make is what time frame to look at and what information to display for that specific time frame.  Some common time frames include one minute charts, five minute, fifteen minute, hourly, 4 hour, and daily.  During the chosen time frame the stock price generally fluctuates.  One common way to capture and display this information is with a candlestick.  A candlestick, as the name implies, is a figure that resembles a candlestick.  The figure consists of a thicker body and a wick at the top and bottom.  The thick body contains the open and close price and the wicks show the high and low for that time period.  The following figure shows a bullish candlestick and a bearish candlestick.  The main difference between the two is where the open and close are in relation to eachother.  A bullish candlestick opens lower and closes higher, thus showing upward movement in the market.  A bearish candlestick opens higher and closes lower, thus showing downward movement in the market.</p>
+<p>Within technical analysis there are many different ways of looking at stock data to make trading decisions.  One of the initial decisions to make is what time frame to look at and what information to display for that specific time frame.  Some common time frames include one minute charts, five minute, fifteen minute, hourly, 4 hour, and daily.  During the chosen time frame the stock price generally fluctuates.  One common way to capture and display this information is with a candlestick.  A candlestick, as the name implies, is a figure that resembles a candlestick.  The figure consists of a thicker body and a wick at the top and bottom.  The thick body contains the open and close price and the wicks show the high and low for that time period.  The following figure shows a bullish candlestick and a bearish candlestick.  The main difference between the two is where the open and close are in relation to eachother.  A bullish candlestick opens lower and closes higher, thus showing upward movement in the market.  A bearish candlestick opens higher and closes lower, thus showing downward movement in the market.  The figure at the top of the page illustrates bullish and bearish candlesticks.</p>
 
 <p><img src="images/Candlesticks.png" alt=""></p>
 
-<p>The Japanese rice traders were the first traders to use candlesticks.  They discovered that the candles could capture what investor sentiment was for the given time period.  Certain candlestick patterns gave a good probability that the market would move in a specific direction.  These patterns were then used as signals to enter the market, add to positions, or to exit the market.  Most candlestick patterns are composed of no more than three candlesticks.  Therefore in this project three candlesticks will be used as inputs to the Neural Network.</p>
+<p>The Japanese rice traders were the first traders to use candlesticks.  They discovered that the candles could capture investor sentiment for a given time period.  Certain candlestick patterns gave a good probability that the market would move in a specific direction.  These patterns were then used as signals to enter the market, add to positions, or to exit the market.  Most candlestick patterns are composed of no more than three candlesticks.  Therefore in this project three candlesticks will be used as inputs to the Neural Network.</p>
 
-<p>The stock market commonly uses a number of terms to describe the direction the market is going.  If the market is heading up, it is referred to as a bull market.  If it's heading down it's a bear market.  If it's moving to the side within a range it's a ranging market or sideways market.  When a position is taken to take advantage of a bull market (buy low sell high) a 'long' position is taken.  When a position is taken to take advantage of a bear market (sell high buy low) a 'short' position is taken.</p>
+<p>The stock market uses a number of terms to describe the current direction of stocks.  If the market is heading up, it is referred to as a bull market.  If it's heading down it's a bear market.  If it's moving to the side within a range it's a ranging market or sideways market.  When a position is entered to take advantage of a bull market (buy low sell high) a 'long' position is taken.  When a position is taken to take advantage of a bear market (sell high buy low) a 'short' position is taken.</p>
 
 <p>The objective of this project is to feed candlestick information into a backpropagation neural network and make trades based on the output.</p>
 
 <h3>
 <a id="problem-description" class="anchor" href="#problem-description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem Description</h3>
 
-<p>Artificial Intelligence provides many different tools for solving complex problems.   This project is focused applying Neural Networks (NN) to learn, identify, and act upon patterns discovered in the stock market to automate trades.  The goal is to have a trading algorithm that will match the historical average return of the stock market through all market conditions.  </p>
+<p>Artificial Intelligence provides many different tools for solving complex problems.   This project is focused applying neural networks to learn, identify, and act upon patterns discovered in the stock market to automate trades.  The goal is to have a trading algorithm that will match the historical average return of the stock market through all market conditions.  </p>
 
 <h3>
 <a id="what-this-project-is" class="anchor" href="#what-this-project-is" aria-hidden="true"><span class="octicon octicon-link"></span></a>What This Project Is</h3>
 
-<p>This project employs the use of AI algorithms, neural networks specifically, for identifying patterns in the stock market and entering and exiting positions based on those trends.  </p>
+<p>This project employs the use of AI algorithms, neural networks specifically, for identifying patterns in the stock market and entering and exiting positions based on the neural network output.  </p>
 
 <p>One method of interpreting sentiment and predicting future market action in the stock market is using candlestick patterns.  Candlesticks were first used by Japanese rice traders.  The theory behind candlesticks is that they capture, in real time, the current sentiment and beliefs of all market participants.  </p>
 
-<p>This paper looks at marrying candlestick patterns with Neural Networks to identify patterns resulting in profitable trades.
+<p>This paper looks at marrying candlestick patterns with neural networks to identify patterns resulting in profitable trades.
 Coding for this project is done in Python in the Quantopian environment.  Quantopian provides a platform for developing trading algorithms, back testing those algorithms, and comparing algorithmic results against market performance.  </p>
 
 <p><img src="images/GeneralMarketShot.png" alt="S&amp;P 500 Index"></p>
@@ -94,7 +97,7 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 
 <p>One of the design issues with a Neural Network is selecting which inputs will provide the needed information and will help reduce error in training. When looking at the stock prices associated with each candlestick, it's apparent that over time prices can change significantly. Additionally, if the NN is applied to other stocks, the new stock's prices can vary significantly from the initial training set. In order to help reduce the complexity of training and extend the usability of the network, the candlestick inputs are encoded as a binary value.  Encoding allows the patterns to be identified, while omitting the complexity of the specific values of the open, high, low and close prices. The encoding consists of comparing each value from one candlestick with each value of another candlestick.</p> 
 
-<p>Each comparison is encoded into a binary value where "1" signifies that a price in one candlestick is greater than a price in the other candlestick. A "0" signifies that the value in a candlestick one is lower than the value in the other candlestick.  For example, in the following figure, the 'Open' of candlestick one is compared with the 'Open', 'High', 'Low', and 'Close' of candlestick two.  Candlestick one 'Open' is lower than 'Open' and 'High' of Candlestick two, but is higher than 'Low' and 'Close'.  This information would be encoded as [0, 0, 1, 1].  A comparison is made between each value in one candlestick to each value in another.  As this approach uses three candlesticks, a total of 48 binary inputs are generated for the candlestick portion of the vector feeding the neural network.</p>
+<p>Each comparison is encoded into a binary value where "1" signifies that a price in one candlestick is greater than a price in another candlestick. A "0" signifies that the value in a candlestick one is lower than the value in another candlestick.  For example, in the following figure, the 'Open' of candlestick one is compared with the 'Open', 'High', 'Low', and 'Close' of candlestick two.  Candlestick one 'Open' is lower than 'Open' and 'High' of Candlestick two, but is higher than 'Low' and 'Close'.  This information would be encoded as [0, 0, 1, 1].  A comparison is made between each value in one candlestick to each value in another.  As this approach uses three candlesticks, a total of 48 binary inputs are generated for the candlestick portion of the vector feeding the neural network.</p>
 
 <p><img src="images/CandlestickPositions.png" alt="Candlestick relative positions"></p>
 
@@ -102,7 +105,7 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 <h3>
 <a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Candlestick Attributes</h3>
 
-<p>Another important consideration that needed to be taken into account is the length of the candlesticks.  A series of candlesticks could potentially have a significant pattern, but if the real body lengths of the candlesticks are very small then the pattern has little significance.  </p>
+<p>Another important consideration that needed to be taken into account is the height of the candlesticks.  A series of candlesticks could potentially have a significant pattern, but if the real body lengths of the candlesticks are very small then the pattern has little significance.  </p>
 
 <p><img src="images/GapUpOversold.png" alt="Gap up pattern in an oversold region"></p>
 
@@ -110,7 +113,7 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
 
 <p>The two figures above show charts with similar gap up patterns, but with different sized candles.  The top chart signals a strong upward move, while the bottom chart meanders in a narrow sideways range.  Another type of candle that is important to point out is the doji.  A doji is a candle with little or no body to the candle with longer wicks to either side of the body.  A doji will often indicate market indecision.  This is visually apparent as the bulls pushed the market one direction, the bears pushed it back in another and at the end neither side made any headway.  These will often show up when both sides are pushing equally aggressively, or when there's not much in the way of market activity.  This may happen in days leading up to a big economic release where market participants are sitting on their hands until the report is issued. </p>   
 
-<p>To track candle length I created two new classes of binary inputs.  One class reports whether or not each of the three candlesticks is a doji (total of three binary values).  The value is set to '1' if a doji and a '0' otherwise.  The second class creates three groups representing historical lengths seen for the candlesticks.  For example, the past 200 candles are looked at and the real body lengths are measured.  Those lengths are then divided into three groups (smaller third, middle third, larger third).  Each candlestick is then evaluated to see which of the three groups it falls into and these results become part of the binary input vector to the neural network.  </p>
+<p>To track candle height I created two new classes of binary inputs.  One class reports whether or not each of the three candlesticks is a doji (total of three binary values).  The value is set to '1' if a doji and a '0' otherwise.  The second class creates three groups representing historical lengths seen for the candlesticks.  For example, the past 200 candles are looked at and the real body lengths are measured.  Those lengths are then divided into three groups (smaller third, middle third, larger third).  Each candlestick is then evaluated to see which of the three groups it falls into and these results become part of the binary input vector to the neural network.  </p>
  
 <h3>
 <a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Relative Importance of Candlestick Patterns</h3>
@@ -129,7 +132,7 @@ Coding for this project is done in Python in the Quantopian environment.  Quanto
  <h3>
 <a id="neural-network-input-selection" class="anchor" href="#neural-network-input-selection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Network Design</h3>
 
-<p>The following figure shows the final neural network design.  It consists of 64 binary inputs, 1 hidden layer, 13 hidden layer nodes, and 3 outputs.  There isn't a hard rule about the number of nodes and hidden layers in a neural network.  It is suggested to have less than two times the size of the input layer.  It was decided that this design would use 1/4 of the number of inputs for the hidden layer.  It would also generate three outputs.</p>
+<p>The following figure shows the final neural network design.  It consists of 64 binary inputs, 1 hidden layer, 13 hidden layer nodes, and 3 outputs.  There isn't a hard rule about the number of nodes and hidden layers in a neural network.  It is suggested to have less than two times the size of the input layer.  It was decided that this design would use 1/4 of the number of inputs for the hidden layer.  It also generates three outputs.</p>
 
 <p><img src="images/NetworkDiagram.png" alt="Neural network design"></p>
 
